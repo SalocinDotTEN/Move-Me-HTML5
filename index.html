@@ -2,13 +2,23 @@
 <head>
 	<title>Move-Me HTML 5 Version</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </head>
 <body>
 	<h1>TEST</h1>
-
-	<!-- Latest compiled and minified JavaScript -->
+	<script type="text/javascript">
+	$(window).load(function() {
+		var randomizer = Math.floor(Math.random() * (1935 - 2)) + 1;
+		$.get('rsc/videoIds.xml', {}, function(xml) {
+			var rows = xml.split('\n');
+			console.log(rows[randomizer]);
+			// $('d', xml).each(function(i) {
+			// 	console.log($(this).attr('n')+'\n');
+			// });
+		});
+	});
+	</script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
-	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </body>
 </html>
