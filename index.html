@@ -34,9 +34,9 @@
 </videogular>
 </div>
 <div class="playlist">
-	<ul>
-		<li><a ng-click="controller.setVideo(0)">Pale Blue Dot</a></li>
-		<li><a ng-click="controller.setVideo(1)">Big Buck Bunny</a></li>
+<ul ng-repeat="videoThings in controller.videos">
+		<li><a ng-click="controller.setVideo($index)">{{videoThings.name}}</a></li>
+		<!-- <li><a ng-click="controller.setVideo(1)">Big Buck Bunny</a></li> -->
 	</ul>
 </div>
 </div>

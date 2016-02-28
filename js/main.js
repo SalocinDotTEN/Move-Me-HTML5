@@ -32,6 +32,7 @@ angular.module('MoveMeHTML5',
 
 		controller.videos = [
 		{
+			name: "Pale Blue Dot",
 			sources: [
 			{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"},
 			{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.webm"), type: "video/webm"},
@@ -39,6 +40,7 @@ angular.module('MoveMeHTML5',
 			]
 		},
 		{
+			name: "Big Buck Bunny",
 			sources: [
 			{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov"), type: "video/mp4"},
 			{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_stereo.ogg"), type: "video/ogg"}
