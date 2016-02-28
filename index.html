@@ -8,26 +8,38 @@
 <body ng-app="MoveMeHTML5">
 	<h1>TEST</h1>
 	<div ng-controller="PlayerController as controller">
-		<videogular vg-theme="controller.config.theme">
-			<vg-media vg-src="controller.config.sources" vg-tracks="controller.config.tracks">
+		<div class="videogular-container">
+			<videogular vg-player-ready="controller.onPlayerReady($API)" vg-complete="controller.onCompleteVideo()" vg-theme="controller.config.theme.url">
+				<vg-media vg-src="controller.config.sources"
+				vg-tracks="controller.config.tracks">
 			</vg-media>
-		<vg-controls>
+
+			<vg-controls>
 			<vg-play-pause-button></vg-play-pause-button>
-			<vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+			<vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
 			<vg-scrub-bar>
 			<vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-			</vg-scrub-bar>
-			<vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-			<vg-volume>
-				<vg-mute-button></vg-mute-button>
-				<vg-volume-bar></vg-volume-bar>
-			</vg-volume>
-			<vg-fullscreen-button></vg-fullscreen-button>
-		</vg-controls>
-		<vg-overlay-play></vg-overlay-play>
-		<vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
-		</videogular>
-	</div>
+		</vg-scrub-bar>
+		<vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+		<vg-volume>
+		<vg-mute-button></vg-mute-button>
+		<vg-volume-bar></vg-volume-bar>
+	</vg-volume>
+	<vg-fullscreen-button></vg-fullscreen-button>
+</vg-controls>
+
+<vg-overlay-play></vg-overlay-play>
+<vg-buffering></vg-buffering>
+<vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+</videogular>
+</div>
+<div class="playlist">
+	<ul>
+		<li><a ng-click="controller.setVideo(0)">Pale Blue Dot</a></li>
+		<li><a ng-click="controller.setVideo(1)">Big Buck Bunny</a></li>
+	</ul>
+</div>
+</div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
