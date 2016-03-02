@@ -4,50 +4,37 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
 	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<!-- <script src="mediaelement/build/mediaelement-and-player.min.js"></script> -->
+	<!-- <link rel="stylesheet" href="mediaelement/build/mediaelementplayer.min.css" /> -->
 </head>
-<body ng-app="MoveMeHTML5">
+<body>
 	<h1>TEST</h1>
-	<div ng-controller="PlayerController as controller">
-		<div class="videogular-container">
-			<videogular vg-player-ready="controller.onPlayerReady($API)" vg-complete="controller.onCompleteVideo()" vg-theme="controller.config.theme.url">
-				<vg-media vg-src="controller.config.sources"
-				vg-tracks="controller.config.tracks">
-			</vg-media>
-
-			<vg-controls>
-			<vg-play-pause-button></vg-play-pause-button>
-			<vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
-			<vg-scrub-bar>
-			<vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-		</vg-scrub-bar>
-		<vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
-		<vg-volume>
-		<vg-mute-button></vg-mute-button>
-		<vg-volume-bar></vg-volume-bar>
-	</vg-volume>
-	<vg-fullscreen-button></vg-fullscreen-button>
-</vg-controls>
-
-<vg-overlay-play></vg-overlay-play>
-<vg-buffering></vg-buffering>
-<vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
-</videogular>
-</div>
-<div class="playlist">
-<ul ng-repeat="videoThings in controller.videos">
-		<li><a ng-click="controller.setVideo($index)">{{videoThings.name}}</a></li>
-		<!-- <li><a ng-click="controller.setVideo(1)">Big Buck Bunny</a></li> -->
-	</ul>
-</div>
-</div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
-<script src="bower_components/angular/angular.min.js"></script>
+	<div id="player" class="player" style="display: block; width: 80%; height: 600px; margin: 10px auto;"></div>
+	<script type="text/javascript">
+		$(window).load(function() {
+			$.getJSON('rsc/videoIds.json', function(data) {
+				var entry = data[Math.floor(Math.random()*data.length)];
+				$f("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.18.swf", "http://move-me.com/main/flvs/"+entry.video.substring(0,2)+"/"+entry.video+"_over16.flv");
+				// document.write('<a href="http://move-me.com/main/flvs/'+entry.video.substring(0,2)+'/'+entry.video+'_over16.flv" class="player" id="player" style="display:block;width:425px;height:300px;margin:10px auto"></a>');
+			});
+			// JavaScript object for later use
+			// var player = new MediaElementPlayer('#player');
+			// player.pause();
+			// player.setSrc('http://move-me.com/main/flvs/'+entry.video.substring(0,2)+'/'+entry.video+'_over16.flv');
+			// player.play();
+			// install flowplayer
+		});
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+	<script src="http://releases.flowplayer.org/js/flowplayer-3.2.13.min.js"></script>
+	<script src="http://releases.flowplayer.org/js/flowplayer.embed-3.2.11.min.js"></script>
+<!-- <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="bower_components/videogular/videogular.js"></script>
 <script src="bower_components/videogular-controls/vg-controls.js"></script>
 <script src="bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
 <script src="bower_components/videogular-poster/vg-poster.js"></script>
 <script src="bower_components/videogular-buffering/vg-buffering.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main.js"></script> -->
 </body>
 </html>
