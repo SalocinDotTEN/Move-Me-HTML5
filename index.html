@@ -7,6 +7,7 @@
 	<!-- <script src="mediaelement/build/mediaelement-and-player.min.js"></script> -->
 	<!-- <link rel="stylesheet" href="mediaelement/build/mediaelementplayer.min.css" /> -->
 	<script src="rsc/jarisplayer/js/swfobject.js" type="text/javascript"></script>
+	<script src="rsc/jarisplayer/js/jarisflvplayer.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/cover/cover.css" />
 	<style type="text/css">
 	object {
@@ -38,6 +39,7 @@
             brightcolor: "4c4c4c",
             controlcolor: "FFFFFF",
             hovercolor: "67A8C1",
+            jsapi: 1,
             controltype: 1
         };
 		// $(window).load(function() {
@@ -62,6 +64,12 @@
 			id:"JarisFLVPlayer"
 		};
 		swfobject.embedSWF("rsc/jarisplayer/JarisFLVPlayer.swf", "player", "640px", "480px", "10.0.0", "rsc/jarisplayer/expressInstall.swf", playervars, params, attributes);
+		function videoFinished(data) {
+			location.reload(true);
+		}
+		player = new JarisFLVPlayer("player");
+		// player.addListener(JarisFLVPlayer.event.ON_ALL, "onAll");
+		player.addListener(JarisFLVPlayer.event.PLAYBACK_FINISHED, "videoFinished");
 	</script>
 	<div class="site-wrapper">
 
