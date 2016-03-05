@@ -6,35 +6,97 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<!-- <script src="mediaelement/build/mediaelement-and-player.min.js"></script> -->
 	<!-- <link rel="stylesheet" href="mediaelement/build/mediaelementplayer.min.css" /> -->
+	<script src="rsc/jarisplayer/js/swfobject.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/cover/cover.css" />
 </head>
 <body>
-	<h1>TEST</h1>
-	<div id="player" class="player" style="display: block; width: 80%; height: 600px; margin: 10px auto;"></div>
 	<script type="text/javascript">
-		$(window).load(function() {
+		var playervars = {
+			source: "",
+			type: "video",
+			streamtype: "file",
+            server: "",//Used for rtmp streams
+            duration: "",
+            poster: "",
+            autostart: "true",
+            logo: "",
+            logoposition: "top left",
+            logoalpha: "0",
+            logowidth: "0",
+            logolink: "",
+            hardwarescaling: "true",
+            darkcolor: "000000",
+            brightcolor: "4c4c4c",
+            controlcolor: "FFFFFF",
+            hovercolor: "67A8C1",
+            controltype: 1
+        };
+		// $(window).load(function() {
 			$.getJSON('rsc/videoIds.json', function(data) {
 				var entry = data[Math.floor(Math.random()*data.length)];
-				$f("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.18.swf", "http://move-me.com/main/flvs/"+entry.video.substring(0,2)+"/"+entry.video+"_over16.flv");
+				playervars["source"] = "http://move-me.com/main/flvs/"+entry.video.substring(0,2)+"/"+entry.video+"_over16.flv";
+				// playervars["poster"] = "http://move-me.com/main/images/"+entry.video+"_over16.jpg";
+				// $f("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.18.swf", "http://move-me.com/main/flvs/"+entry.video.substring(0,2)+"/"+entry.video+"_over16.flv");
 				// document.write('<a href="http://move-me.com/main/flvs/'+entry.video.substring(0,2)+'/'+entry.video+'_over16.flv" class="player" id="player" style="display:block;width:425px;height:300px;margin:10px auto"></a>');
 			});
-			// JavaScript object for later use
-			// var player = new MediaElementPlayer('#player');
-			// player.pause();
-			// player.setSrc('http://move-me.com/main/flvs/'+entry.video.substring(0,2)+'/'+entry.video+'_over16.flv');
-			// player.play();
-			// install flowplayer
-		});
+		// });
+		var params = {
+			menu: "false",
+			scale: "noScale",
+			allowFullscreen: "true",
+			allowScriptAccess: "always",
+			bgcolor: "#000000",
+			quality: "high",
+			wmode: "opaque"
+		};
+		var attributes = {
+			id:"JarisFLVPlayer"
+		};
+		swfobject.embedSWF("rsc/jarisplayer/JarisFLVPlayer.swf", "player", "900px", "700px", "10.0.0", "rsc/jarisplayer/expressInstall.swf", playervars, params, attributes);
 	</script>
+	<div class="site-wrapper">
+
+		<div class="site-wrapper-inner">
+
+			<div class="cover-container">
+
+				<div class="masthead clearfix">
+					<div class="inner">
+						<h3 class="masthead-brand">Move-me HTML</h3>
+						<nav>
+							<ul class="nav masthead-nav">
+								<li class="active"><a href="#">Home</a></li>
+								<li><a href="#">Features</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+				<div class="inner cover">
+					<h1 class="cover-heading"></h1>
+					<div id="player" class="player">
+						<h2>Sorry, no Flash detected or something.</h2>
+						<p>Please <a href="http://www.adobe.com/go/getflashplayer" target="_blank">download Flash from here</a> first. So sorry if you are on an iPad or mobile device. :( </p>
+					</div>
+					<p class="lead">This is the HTML version of the Flash site move-me.com</p>
+					<p class="lead">
+						<a href="#" class="btn btn-lg btn-default">Learn more</a>
+					</p>
+				</div>
+
+				<div class="mastfoot">
+					<div class="inner">
+						<p>A Salocin.TEN adaptation experimentation.</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- <div id="player" class="player" style="display: block; width: 80%; height: 600px; margin: 10px auto;"></div> -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
-	<script src="http://releases.flowplayer.org/js/flowplayer-3.2.13.min.js"></script>
-	<script src="http://releases.flowplayer.org/js/flowplayer.embed-3.2.11.min.js"></script>
-<!-- <script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="bower_components/videogular/videogular.js"></script>
-<script src="bower_components/videogular-controls/vg-controls.js"></script>
-<script src="bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
-<script src="bower_components/videogular-poster/vg-poster.js"></script>
-<script src="bower_components/videogular-buffering/vg-buffering.js"></script>
-<script src="js/main.js"></script> -->
 </body>
 </html>
