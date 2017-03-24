@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Move-Me HTML 5 Version</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" crossorigin="anonymous" />
 	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<!-- <script src="mediaelement/build/mediaelement-and-player.min.js"></script> -->
@@ -10,16 +10,16 @@
 	<!--<script src="rsc/jarisplayer/js/jarisflvplayer.js" type="text/javascript"></script>-->
 	<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/cover/cover.css" />
 	<style type="text/css">
-	object {
-	    -webkit-transform: rotate(-90deg);
-	    -moz-transform: rotate(-90deg);
-	    -o-transform: rotate(-90deg);
-	    -ms-transform: rotate(-90deg);
-	    transform: rotate(-90deg);
-	}
+		object {
+			-webkit-transform: rotate(-90deg);
+			-moz-transform: rotate(-90deg);
+			-o-transform: rotate(-90deg);
+			-ms-transform: rotate(-90deg);
+			transform: rotate(-90deg);
+		}
 	</style>
 </head>
-<body>
+<body class="black white-text">
 	<script type="text/javascript">
 		var playervars = {
 			source: "",
@@ -71,49 +71,24 @@
 		// player.addListener(JarisFLVPlayer.event.ON_ALL, "onAll");
 		//player.addListener(JarisFLVPlayer.event.PLAYBACK_FINISHED, "videoFinished");
 	</script>
-	<div class="site-wrapper">
-
-		<div class="site-wrapper-inner">
-
-			<div class="cover-container">
-
-				<div class="masthead clearfix">
-					<div class="inner">
-						<h3 class="masthead-brand">Move-me HTML</h3>
-						<nav>
-							<ul class="nav masthead-nav">
-								<li class="active"><a href="#">Home</a></li>
-								<li><a href="#">Features</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-
-				<div class="inner cover">
-					<h1 class="cover-heading"></h1>
-					<div id="player" class="player">
-						<h2>Sorry, no Flash detected or something.</h2>
-						<p>Please <a href="http://www.adobe.com/go/getflashplayer" target="_blank">download Flash from here</a> first. So sorry if you are on an iPad or mobile device. :( </p>
-					</div>
-					<p class="lead">This is the HTML version of the Flash site move-me.com</p>
-					<p class="lead">
-						<a href="#" class="btn btn-lg btn-default">Learn more</a>
-					</p>
-				</div>
-
-				<div class="mastfoot">
-					<div class="inner">
-						<p>A Salocin.TEN adaptation experimentation.</p>
-					</div>
-				</div>
-
+	<div class="container">
+		<div class="row">
+			<div id="player" class="player col s12">
+				<h2>Sorry, no Flash detected or something.</h2>
+				<p>Please <a href="http://www.adobe.com/go/getflashplayer" target="_blank">download Flash from here</a> first. So sorry if you are on an iPad or mobile device. :( </p>
 			</div>
-
+			<p class="lead">This is the HTML version of the Flash site move-me.com</p>
 		</div>
-
 	</div>
+	<footer class="page-footer black white-text">
+		<div class="footer-copyright">
+			<div class="container">
+				<p>A Salocin.TEN adaptation experimentation.</p>
+			</div>
+		</div>
+	</footer>
+
 	<!-- <div id="player" class="player" style="display: block; width: 80%; height: 600px; margin: 10px auto;"></div> -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
